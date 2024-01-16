@@ -11,6 +11,11 @@ import star from "../assets/star.png";
 import appleGray from "../assets/appleGray.png";
 import thumbsUp from "../assets/thumsUp.png";
 import thumbBackground from "../assets/thumbBackground.png";
+import mobile from "../assets/mibile.png";
+import harborimg from "../assets/harb.png";
+import x from "../assets/x.png";
+import insta from "../assets/insta.png";
+import facebook from "../assets/facebook.png";
 
 export const NavWrapper = styled.div`
   display: flex;
@@ -35,23 +40,43 @@ export const Smalldiv = styled.div`
   /* border: 2px solid gainsboro; */
 `;
 export const Genh1 = styled.h1`
-  color: ${(props) => (props.$thumb ? "#fff" : "#65727b")};
-  text-align: center;
+  color: ${(props) => (props.$thumb || props.$signup ? "#fff" : "#65727b")};
+  text-align: ${(props) => (props.$noname ? "left" : "center")};
+
   font-family: Roboto;
   font-size: ${(props) => (props.$center ? "23px" : "16px")};
   font-style: normal;
   margin: ${(props) => (props.$center ? "38px 0 50px" : "0")};
   font-weight: 400;
-  line-height: 31px; /* 141% */
+  line-height: ${(props) => (props.$signup ? "36px" : "31px")}; /* 141% */
 `;
 export const CenterDiv = styled.div`
   display: flex;
+  width: ${(props) => (props.$footerWrap ? "100%" : "undefined")};
   /* border: 10px solid olive; */
   flex-direction: ${(props) =>
-    props.$btn || props.$com || props.$comWrap ? "row" : "column"};
-  align-items: center;
+    props.$btn ||
+    props.$com ||
+    props.$comWrap ||
+    props.$mobile ||
+    props.$input ||
+    props.$footerWrap ||
+    props.$noname ||
+    props.$footerhome
+      ? "row"
+      : "column"};
+
+  align-items: ${(props) => (props.$innerfooter ? "start" : "center")};
   justify-content: ${(props) =>
-    props.$com ? "left" : props.$commWrap ? "space-around" : "center"};
+    props.$com
+      ? "left"
+      : props.$commWrap
+      ? "space-around"
+      : props.$inmobile
+      ? "flex-end"
+      : props.$footerWrap
+      ? "space-between"
+      : "center"};
   margin: ${(props) =>
     props.$center
       ? "145px 0 0"
@@ -61,9 +86,21 @@ export const CenterDiv = styled.div`
       ? "230px 0 0"
       : props.$thumb
       ? "190px 0 50px"
+      : props.$mobile
+      ? "50px 15vw 190px"
+      : props.$inmobile
+      ? "00px 00px 0px 00px"
+      : props.$footer
+      ? "200px 15vw 50px"
+      : props.$footerWrap
+      ? "80px 0 0 "
       : "0px"};
 
-  background-color: ${(props) => (props.$thumb ? "#28514F" : "none")};
+  background-color: ${(props) =>
+    props.$thumb ? "#28514F" : props.$mobile ? "#F8E6BE" : "none"};
+
+  border-top: ${(props) =>
+    props.$footer ? "2px solid rgba(165, 155, 134, 0.20)" : "none"};
 
   gap: ${(props) =>
     props.$btn ||
@@ -72,18 +109,25 @@ export const CenterDiv = styled.div`
     props.$com ||
     props.$comWrap
       ? "20px"
-      : props.$we
+      : props.$we || props.$footerhome
       ? "36px"
+      : props.$inmobile
+      ? "30px"
+      : props.$noname
+      ? "80px"
+      : props.$innerfooter
+      ? "10px"
       : "0"};
 `;
 export const TitleH1 = styled.h1`
-  color: ${(props) => (props.$thumb ? "#fff" : "#28514f")};
-  text-align: center;
+  color: ${(props) =>
+    props.$thumb ? "#fff" : props.$mobile ? "#333" : "#28514f"};
+  text-align: ${(props) => (props.$mobile ? "start" : "center")};
   font-family: DM Serif Display;
-  font-size: 48px;
+  font-size: ${(props) => (props.$mobile ? "40px" : "48px")};
   font-style: normal;
   font-weight: 400;
-  line-height: 55.68px; /* 116% */
+  line-height: ${(props) => (props.$mobile ? "47px" : "55px")}; /* 116% */
 `;
 export const BtnStore = styled.button`
   width: ${(props) => (props.$thumb ? "204px" : "156px")};
@@ -146,10 +190,21 @@ export const CardImg = styled.img.attrs((props) => ({
     ? thumbsUp
     : props.$thumbBack
     ? thumbBackground
+    : props.$mobile
+    ? mobile
+    : props.$footerWrap
+    ? harborimg
+    : props.$x
+    ? x
+    : props.$insta
+    ? insta
+    : props.$facebook
+    ? facebook
     : undefined, // Default background image
 }))`
   /* Other styles */
   margin: ${(props) => (props.$thumb ? "-100px 0 170px" : "0")};
+  width: ${(props) => (props.$thumbBack ? "100%" : "auto")};
 `;
 export const Cardh1 = styled.h1`
   color: #1b1f2b;
@@ -184,4 +239,23 @@ export const Commenth1 = styled.h1`
   font-style: normal;
   font-weight: 400;
   line-height: 20px; /* 153.846% */
+`;
+export const LastInput = styled.input`
+  width: 276px;
+  height: 60px;
+  padding-left: 30px;
+  border: 1px solid #fff;
+  border-radius: 40px 0px 0px 40px;
+  background-color: #fff;
+  box-shadow: 0px 4px 0px 0px rgba(167, 167, 167, 0.16);
+`;
+export const Lastdiv = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 117px;
+  height: 60px;
+  border-radius: 0px 40px 40px 0px;
+  background-color: #28514f;
+  box-shadow: 0px 4px 0px 0px rgba(167, 167, 167, 0.16);
 `;

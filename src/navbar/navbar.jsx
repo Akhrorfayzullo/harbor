@@ -1,6 +1,6 @@
 import React from "react";
 import { Genh1, NavWrapper, Smalldiv } from "../styled/styled";
-import harborimg from "../assets/Rectangle.png";
+import harborimg from "../assets/harb.png";
 
 export default function Navbar() {
   return (

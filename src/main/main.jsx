@@ -7,6 +7,8 @@ import {
   CommentDiv,
   Commenth1,
   Genh1,
+  LastInput,
+  Lastdiv,
   MobileCard,
   Simplediv,
   TitleH1,
@@ -14,6 +16,7 @@ import {
 import apple from "../assets/image 2.png";
 import android from "../assets/Rectangle (1).png";
 import phoneimg from "../assets/image 1.png";
+import Footer from "../footer/footer";
 
 export default function Main() {
   return (
@@ -190,6 +193,42 @@ export default function Main() {
         </BtnStore>
         <CardImg $thumbBack={true} />
       </CenterDiv>
+      <CenterDiv $mobile={true}>
+        <CenterDiv $inmobile style={{ flex: "1" }}>
+          <TitleH1 $mobile={true}>
+            Stay one step
+            <br /> ahead with harbor
+          </TitleH1>
+          <CenterDiv $btn={true}>
+            <BtnStore>
+              <img src={apple} alt="no" style={{ marginRight: "10px" }} />
+              App Store
+            </BtnStore>
+            <BtnStore>
+              <img src={android} alt="no" style={{ marginRight: "10px" }} />
+              Play Store
+            </BtnStore>
+          </CenterDiv>
+        </CenterDiv>
+        <div style={{ flex: "1" }}>
+          <CardImg $mobile={true} />
+        </div>
+      </CenterDiv>
+      <TitleH1>Join harbor high fives</TitleH1>
+      <Genh1 $center={true}>
+        Up high. Down low. Tips on how to find your way through any disaster
+        <br /> in the best way possible: together. And be the first in line for
+        Android.
+      </Genh1>
+      <CenterDiv $input={true}>
+        <LastInput />
+        <Lastdiv>
+          <Genh1 $signup={true}>SIGN UP</Genh1>
+        </Lastdiv>
+      </CenterDiv>
+      <Genh1>Our commitment to protecting your Data Privacy</Genh1>
+      <Footer />
+      <p>© 2020 Career Karma</p>
     </div>
   );
 }
